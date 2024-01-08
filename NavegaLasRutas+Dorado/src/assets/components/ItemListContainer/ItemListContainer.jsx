@@ -2,6 +2,7 @@ import ItemList from '../ItemList/ItemList';
 import { useEffect, useState } from 'react';
 import { getProducts, getProductsByCategory } from '../../../data/asynMock';
 import { useParams } from 'react-router-dom';
+import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 const ItemListContainer = () => {
   const [data, setData] = useState([]);
@@ -27,14 +28,8 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      {isLoading ? 
-        <div className="d-flex justify-content-center">
-          <div className="spinner-grow text-light" style={{ width: '7rem', height: '7rem', marginTop: '7rem' }} role="status">
-            <span className="sr-only"></span>
-          </div>
-        </div>
-       : 
-        <ItemList data={data} />
+      <LoaderComponent loading={isLoading} />
+      {!isLoading &&  <ItemList data={data} />
       }
     </div>
   );

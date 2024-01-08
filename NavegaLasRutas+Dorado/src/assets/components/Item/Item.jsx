@@ -19,11 +19,9 @@ const Item = ({ id, banda, disco, avatar, categoria, año, }) => {
           <p className="littledetails mb-0">Año: {año}</p>
         </div>
       </div>
-      <button className="masinfo col-4 mx-auto">
-        <Link to={`/product/${id}`}>
-          + Info
-          </Link>
-      </button>
+      <Link to={`/product/${id}`}>
+        <button className="masinfo col-4 mx-auto">+ Info</button>
+      </Link>
   
     </div>
   );
